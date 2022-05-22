@@ -9,9 +9,13 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var imageview: UIImageView!
     @IBOutlet weak var button: UIButton!
-    
+    @IBOutlet weak var imageview: UIImageView! {
+        didSet {
+            imageview.layer.cornerRadius = 10
+            
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
