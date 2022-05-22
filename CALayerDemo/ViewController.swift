@@ -12,9 +12,10 @@ class ViewController: UIViewController {
     var gradientLayer: CAGradientLayer! {
         didSet {
             gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-            gradientLayer.endPoint = CGPoint(x: 0, y: 1)            
-            gradientLayer.colors = [UIColor.red.cgColor, UIColor.blue.cgColor, UIColor.green.cgColor]
-            gradientLayer.locations = [0, 0.2, 1] // изменяем распределением цветов
+            gradientLayer.endPoint = CGPoint(x: 0, y: 1)
+            let startColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1).cgColor
+            let endColor = #colorLiteral(red: 0.3647058904, green: 0.06666667014, blue: 0.9686274529, alpha: 1).cgColor
+            gradientLayer.colors = [startColor, endColor]
         }
     }
     
@@ -44,7 +45,11 @@ class ViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        gradientLayer.frame = CGRect(x: 0, y: 0, width: view.bounds.size.width, height: view.bounds.size.height)
+        gradientLayer.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: view.bounds.size.width,
+            height: view.bounds.size.height)
     }
 }
 
